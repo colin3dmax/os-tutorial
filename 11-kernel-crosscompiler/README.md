@@ -69,6 +69,18 @@ make install-gcc
 make install-target-libgcc 
 ```
 
+
+gcc 配置补充
+---
+```sh
+brew install gmp
+brew install mpfr
+brew install libmpc
+# 安装上传依赖库后，下面的配置增加选项
+../gcc-4.9.1/configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-languages=c --without-headers  --with-gmp=/usr/local/Cellar/gmp/6.2.0/  --with-mpfr=/usr/local/Cellar/mpfr/4.0.2/   --with-mpc=/usr/local/Cellar/libmpc/1.1.0/
+
+```
+
 That's it! You should have all the GNU binutils and the compiler at `/usr/local/i386elfgcc/bin`, prefixed by `i386-elf-` to avoid
 collisions with your system's compiler and binutils.
 
